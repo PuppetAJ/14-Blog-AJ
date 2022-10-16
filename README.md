@@ -56,6 +56,8 @@ If you wish to seed the database, run "npm run seed"
 
 Alternatively, visit the site here: https://tech-blog-aj.herokuapp.com
 
+All test account logins use the password "testpassword"
+
 ## Credits
 
 * Adrian Jimenez
