@@ -18,7 +18,8 @@ const sess = {
   // store session using connect-session-sequelize package with our database
   store: new SequelizeStore({
       db: sequelize
-  })
+  }),
+  expires: new Date(Date.now() + 3600000)
 };
 
 // declare express instance and port
