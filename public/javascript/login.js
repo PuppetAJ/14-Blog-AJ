@@ -16,10 +16,11 @@ async function signupFormHandler(event) {
     
     if (response.ok) {
       console.log('success');
-      document.querySelector('#username-signup').value = "";
-      document.querySelector('#password-signup').value = "";
+      document.location.replace('/');
     } else {
       alert(response.statusText);
+      document.querySelector('#username-signup').value = "";
+      document.querySelector('#password-signup').value = "";
     }
   }
 }

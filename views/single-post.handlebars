@@ -4,10 +4,10 @@
   </div>
 
   {{#if loggedIn}}
-  <div class="comment-section d-flex row gx-0">
-    <form class="comment-form">
+  <div class="form-section d-flex row gx-0">
+    <form class="form-wrapper comment-form">
       <div>
-        <label for="comment-body" class="form-label comment-label">Write your own comment!</label>
+        <label for="comment-body" class="form-label form-label-override">Write your own comment!</label>
         <textarea id="comment-text" class = "form-control" rows=4 name="comment-body"></textarea>
       </div>
 
@@ -22,4 +22,4 @@
   {{#if loggedIn}}
   <script src="/javascript/comment.js"></script>
   {{/if}}
-</section>
+</div>

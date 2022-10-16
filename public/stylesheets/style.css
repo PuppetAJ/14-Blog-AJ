@@ -190,11 +190,11 @@ body {
   border: none;
 }
 
-.comment-form {
+.form-wrapper {
   margin: 10px 0px;
 }
 
-.comment-section{
+.form-section{
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px 32px;
@@ -203,7 +203,7 @@ body {
   border-radius: 20px;
 }
 
-.comment-label {
+.form-label-override {
   font-size: 30px;
   color: var(--color-2);
 }
@@ -229,6 +229,41 @@ body {
   margin-bottom: 15px;
 }
 
+.edit-title {
+  width: 95%;
+}
+
+.edit-text {
+  width: 95%;
+}
+
+.delete-post-btn {
+  font-size: 30px;
+}
+
+.save-post-btn {
+  font-size: 30px;
+}
+
+hr {
+  margin: 2rem 0rem;
+  height: 3px;
+  border-radius: 5px;
+  background-color: var(--color-1);
+}
+
+.dashboard {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.edit-post {
+  margin-bottom: 0px;
+}
+
+.edit-body {
+  background-color: rgb(87, 66, 65);
+}
 
 
 

@@ -1,9 +1,9 @@
-<article class="post">
-  <div class="post-head">
-    <a href="/post/{{id}}" class="post-title">{{title}}</a>
-    <p class="post-info">Posted by {{user.username}} on {{format_date created_at}} | {{comments.length}} {{format_plural "comment" comments.length}}</p>
+<article class="post" data-id={{id}}>
+  <div class="post-head" data-id={{id}}>
+    <a data-id={{id}} href="/post/{{id}}" class="post-title">{{title}}</a>
+    <p data-id={{id}} class="post-info">Posted by {{user.username}} on {{format_date created_at}} | {{comments.length}} {{format_plural "comment" comments.length}}</p>
   </div>
-  <div class="body">
-    <p class="post-text">{{post_text}}</p>
+  <div data-id={{id}} class="body">
+    <p data-id={{id}} class="post-text">{{post_text}}</p>
   </div>
 </article>
