@@ -1,22 +1,25 @@
-<div class="post-list d-flex row">
-  {{> post-info post }}
-</div>
-
-{{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
+<div class="container">
+  <div class="d-flex row gx-0">
+    {{> post-info post }}
   </div>
 
-  <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+  {{#if loggedIn}}
+  <div class="comment-section d-flex row gx-0">
+    <form class="comment-form">
+      <div>
+        <label for="comment-body" class="form-label comment-label">Write your own comment!</label>
+        <textarea id="comment-text" class = "form-control" rows=4 name="comment-body"></textarea>
+      </div>
+
+      <div>
+        <button class = "btn btn-secondary" type="submit">Add comment</button>
+      </div>
+    </form>
   </div>
-</form>
-{{/if}}
-<h1 class = "comments-header">Comments:</h1>
-{{> comments post.comments}}
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
-{{/if}}
+  {{/if}}
+  <h1 class = "comments-header">Comments:</h1>
+  {{> comments post.comments}}
+  {{#if loggedIn}}
+  <script src="/javascript/comment.js"></script>
+  {{/if}}
+</section>

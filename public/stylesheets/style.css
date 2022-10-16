@@ -71,6 +71,7 @@ body {
 .post {
   border: 5px solid var(--color-1);
   border-top: none;
+  margin-top: 20px;
 }
 
 .post-head {
@@ -106,18 +107,18 @@ body {
 
 .comments {
   display: flex;
-  padding: 20px 60px;
   padding-top: 0px;
   margin-top: 0px;
 }
 
 .comments-header {
-  margin: 5px 50px;
+  margin: 5px 0px;
 }
 
 .comment {
   border: 5px solid var(--color-1);
   border-radius:10px;
+  margin-bottom: 10px;
 }
 
 .comment-head {
@@ -188,3 +189,46 @@ body {
   background-color: var(--color-7);
   border: none;
 }
+
+.comment-form {
+  margin: 10px 0px;
+}
+
+.comment-section{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px 32px;
+  padding-top: 0px;
+  background-color: var(--color-1);
+  border-radius: 20px;
+}
+
+.comment-label {
+  font-size: 30px;
+  color: var(--color-2);
+}
+
+#comment-text {
+  margin-bottom: 10px;
+}
+
+.btn-secondary {
+  background-color: var(--color-2);
+  border:none;
+  color: var(--color-1);
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  border:none;
+  color: var(--color-1);
+  background-color: var(--color-3);
+}
+
+#comment-text {
+  margin-bottom: 15px;
+}
+
+
+
+
