@@ -48,7 +48,7 @@ Once all dependencies have been downloaded, you can excecute server.js by typing
 
 ## Usage
 
-![](./assets/images/preview.JPG)
+![](./assets/images/preview.jpg)
 
 In order to use this project, please create a .env file with the appropriate variables and set up the database using the schema.sql file in the db directory. (Optionally, you can run the command "npm run schema" to run the schema file for you once .env is set up). Once that is set up, simply execute npm start and the application should start.
 
