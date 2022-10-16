@@ -4,6 +4,8 @@
   "description": "Module 14 blog challenge by Adrian Jimenez",
   "main": "server.js\b",
   "scripts": {
+    "schema": "node db/index.js",
+    "seed": "node seeds/index.js",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

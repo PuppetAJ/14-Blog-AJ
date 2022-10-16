@@ -13,6 +13,10 @@ body {
   --color-1: rgb(34,16,15); 
   --color-2: rgb(217,234,211);
   --color-3: rgb(217,234,211,0.75);
+  --color-4: rgb(217,234,211,0.50);
+  --color-5: rgb(167,167,167);
+  --color-6: rgb(34,16,15,0.85);
+  --color-7: rgb(34,16,15,0.65);
 }
 
 #head {
@@ -59,3 +63,128 @@ body {
   color: var(--color-3);
 }
 
+.post-list {
+  padding: 20px 60px;
+  margin-top: 30px;
+}
+
+.post {
+  border: 5px solid var(--color-1);
+  border-top: none;
+}
+
+.post-head {
+  display: flex;
+  background-color: var(--color-1);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-title {
+  margin: 10px 40px;
+  color: var(--color-3);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 50px;
+}
+
+.post-title:hover {
+  color:var(--color-4);
+}
+
+.post-info {
+  margin: 10px 40px;
+  color: var(--color-3);
+  font-size: 30px;
+}
+
+.post-text {
+  margin: 10px 40px;
+  font-size: 35px;
+  color: var(--color-1);
+}
+
+.comments {
+  display: flex;
+  padding: 20px 60px;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.comments-header {
+  margin: 5px 50px;
+}
+
+.comment {
+  border: 5px solid var(--color-1);
+  border-radius:10px;
+}
+
+.comment-head {
+  display: flex;
+  background-color: var(--color-1);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-info {
+  margin: 10px 10px;
+  color: var(--color-3);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.comment-text {
+  margin: 10px 40px;
+  font-size: 20px;
+  color: var(--color-1);
+}
+
+.login-form {
+  background-color: var(--color-2);
+  box-shadow: 8px 8px 0px 0px var(--color-5);
+  border-radius:10px;
+  margin: 20px;
+  margin-bottom: 30px;
+}
+
+.signup-form {
+  background-color: var(--color-2);
+  box-shadow: 8px 8px 0px 0px var(--color-5);
+  border-radius:10px;
+  margin: 20px;
+}
+
+.form-container {
+  margin-top: 40px;
+  background: rgb(34,16,15,0.85);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.form-divider-header {
+  color: var(--color-2);
+}
+
+.form-header {
+  color: var(--color-1);
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: var(--color-6);
+  border: none;
+} 
+
+.btn-primary:hover {
+  background-color: var(--color-7);
+  border: none;
+}
