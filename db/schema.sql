@@ -1,0 +1,6 @@
+DROP DATABASE IF EXISTS blog_AJ;
+
+CREATE DATABASE blog_AJ;
+
+USE blog_AJ;
+
