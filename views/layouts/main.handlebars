@@ -12,30 +12,34 @@
 
 <body class="row">
   <div class="col">
+    <!-- Header starts -->
     <header id = "head">
-      <nav id = "nav" class = "d-flex justify-content-start">
+      <nav id = "nav" class = "d-flex">
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/dashboard">Dashboard</a>
+        <!-- Only display if logged in -->
         {{#if loggedIn}}
         <a id="logout" class="nav-link">Logout</a>
         {{else}}
         <a class="nav-link" href="/login">Login</a>
         {{/if}}
       </nav>
-      <div class = "d-flex">
+      <div id="page-title" class = "d-flex">
         <div id = "title-bg">
           <h1 id = "title">The Tech Blog</h1>
         </div>
       </div>
-
     </header>
-    <main class="" id = "content">
+    <!-- Header ends -->
+
+    <!-- Where posts go -->
+    <main id = "content">
       {{{ body }}}
     </main>
   </div>
+  <!-- If logged in load resource -->
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
 </body>
-
 </html>

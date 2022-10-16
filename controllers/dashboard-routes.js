@@ -1,10 +1,11 @@
+// Import router, models, and helper functions
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-module.exports = router;
-
+// Makes sure user is logged in before allowing you into the dashboard route
+// if logged in, will find all posts with their session id
+// GET all posts with session id (/dashboard/)
 router.get('/', withAuth, (req, res) => {
   Post.findAll({
     where: {
@@ -35,6 +36,7 @@ router.get('/', withAuth, (req, res) => {
   .then(dbPostData => {
     // serialize data before passing to template
     const posts = dbPostData.map(post => post.get({ plain: true }));
+    // render view with object passed in (handlebars view)
     res.render('dashboard', { posts, loggedIn: true });
   })
   .catch(err => {
@@ -43,6 +45,7 @@ router.get('/', withAuth, (req, res) => {
   });
 });
 
+// GET post selected for editing (/dashboard/edit/:id)
 router.get('/edit/:id', withAuth, (req, res) => {
   Post.findOne({
     where: {
@@ -80,3 +83,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
     res.status(500).json(err);
   });
 });
+
+// Export route
+module.exports = router;

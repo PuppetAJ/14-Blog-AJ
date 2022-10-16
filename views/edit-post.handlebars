@@ -1,4 +1,6 @@
+<!-- Post container -->
 <section class="container">
+  <!-- Edit container -->
   <article>
     <div class = " mt-3 d-flex justify-content-between align-items-center">
       <h1 class="edit-post">Edit Post</h1>
@@ -21,6 +23,8 @@
     </form>
     <hr>
   </article>
+
+  <!-- Add comment container -->
   <div class="form-section d-flex row gx-0">
     <form class="form-wrapper comment-form">
       <div>
@@ -34,6 +38,7 @@
     </form>
   </div>
 
+  <!-- Display comments -->
   {{> comments post.comments }}
 
 

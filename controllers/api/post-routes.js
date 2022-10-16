@@ -1,9 +1,9 @@
+// Import router, helper function, and model
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
-//const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-// get all users
+// GET all users route (/api/users/)
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: ['id', 'title', 'post_text', 'created_at'],
@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
   });
 });
 
+// GET one user by id route (/api/users/:id)
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -64,11 +65,12 @@ router.get('/:id', (req, res) => {
   });
 });
 
+// CREATE a post with expected paramaters router (/api/posts/)
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_text: 'hello', user_id: 1}
+  // expects {title: 'This is a post title', post_text: 'this is some post text', user_id: 1}
   Post.create({
     title: req.body.title,
-    post_url: req.body.post_url,
+    post_text: req.body.post_text,
     user_id: req.session.user_id
   })
   .then(dbPostData => res.json(dbPostData))
@@ -78,6 +80,7 @@ router.post('/', withAuth, (req, res) => {
   });
 });
 
+// UPDATE a post route (/api/posts/:id)
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
@@ -103,6 +106,7 @@ router.put('/:id', withAuth, (req, res) => {
   });
 });
 
+// DELETE a post route (/api/posts/:id)
 router.delete('/:id', withAuth, (req, res) => {
   Post.destroy({
     where: {
@@ -122,4 +126,5 @@ router.delete('/:id', withAuth, (req, res) => {
   });
 });
 
+// Export routes
 module.exports = router;

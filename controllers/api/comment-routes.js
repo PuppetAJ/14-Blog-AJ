@@ -1,7 +1,9 @@
+// Import router, helper function, and model
 const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// GET all comments route (/api/comments)
 router.get('/', (req, res) => {
   Comment.findAll({
     attributes: ['id', 'comment_text','user_id','post_id'],
@@ -14,6 +16,8 @@ router.get('/', (req, res) => {
   });
 });
 
+// CREATE a comment route (/api/comments)
+// Only create comment if withAuth check passes
 router.post('/', withAuth, (req, res) => {
   Comment.create({
     comment_text: req.body.comment_text,
@@ -27,6 +31,7 @@ router.post('/', withAuth, (req, res) => {
   });
 });
 
+// DELETE a comment route (/api/comments/:id)
 router.delete('/:id', withAuth, (req, res) => {
   Comment.destroy({
     where: {
@@ -46,4 +51,5 @@ router.delete('/:id', withAuth, (req, res) => {
   });
 });
 
+// Export router
 module.exports = router;

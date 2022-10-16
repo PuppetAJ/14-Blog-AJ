@@ -1,8 +1,11 @@
+<!-- Post and comments container -->
 <div class="container">
+  <!-- Post information section -->
   <div class="d-flex row gx-0">
     {{> post-info post }}
   </div>
 
+  <!-- If logged in, display add a comment section -->
   {{#if loggedIn}}
   <div class="form-section d-flex row gx-0">
     <form class="form-wrapper comment-form">
@@ -17,8 +20,12 @@
     </form>
   </div>
   {{/if}}
+
+  <!-- Display comments -->
   <h1 class = "comments-header">Comments:</h1>
   {{> comments post.comments}}
+
+  <!-- If logged in then load resource -->
   {{#if loggedIn}}
   <script src="/javascript/comment.js"></script>
   {{/if}}

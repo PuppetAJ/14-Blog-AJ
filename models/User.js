@@ -1,13 +1,17 @@
+// Import model class, datatypes, bcrypt, and sequelize connection
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
+// Declare user class
 class User extends Model {
+  // checkPassword function for checking if inputted password is the same as hashed password
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
+// Initialize table with columns
 User.init(
   {
     // table column defs go here
@@ -31,8 +35,10 @@ User.init(
     }
   },
   {
+    // Declare hooks to be used before certain actions
     hooks: {
       async beforeBulkCreate(newUsersData) {
+        // Before bulk user creation, each password must be hashed
         hashedUsersData = [];
         for (i=0; i < newUsersData.length; i++) {
           newUsersData[i].password = await bcrypt.hash(newUsersData[i].password, 10);
@@ -41,10 +47,12 @@ User.init(
         return hashedUsersData;
       },
       async beforeCreate(newUserData) {
+        // Before user creation, their password must be hashed
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
       async beforeUpdate(updatedUserData) {
+        // Before a user being updated in the database, their new password must be hashed
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
       }
@@ -63,4 +71,5 @@ User.init(
   }
 );
 
+// Export model
 module.exports = User;

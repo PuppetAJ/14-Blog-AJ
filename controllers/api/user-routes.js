@@ -1,7 +1,9 @@
+// Import router, helper function, and model
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// GET all users route (/api/users/)
 router.get('/', (req, res) => {
   User.findAll({
     attributes: { exclude: ['password'] }
@@ -13,6 +15,7 @@ router.get('/', (req, res) => {
   });
 });
 
+// GET one user route (/api/users/:id)
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -47,6 +50,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
+// CREATE a user route (/api/users/)
 router.post('/', (req, res) => {
   User.create({
     individualHooks: true,
@@ -68,24 +72,30 @@ router.post('/', (req, res) => {
   });
 });
 
+// LOGIN route (/api/users/login)
 router.post('/login', (req, res) => {
+  // searches for a user with a specific username..
   User.findOne({
      where: {
       username: req.body.username
     }
   }).then(dbUserData => {
+    // if no user found send message and return
     if (!dbUserData) {
       res.status(400).json({ message: 'No user with that username!' });
       return;
     }
 
+    // uses check password function built into user class to make sure the password is correct
     const validPassword = dbUserData.checkPassword(req.body.password);
 
+    // If valid password is false send error and return
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
 
+    // Otherwise, save user session with user id, user name, and loggedIn property set to true
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
@@ -96,7 +106,10 @@ router.post('/login', (req, res) => {
   });
 });
 
+// UPDATE a user route (/api/users/:id)
+// must pass authorization check 
 router.put('/:id', withAuth, (req, res) => {
+  // Makes sure to hash new password using hooks before updating a user
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -116,6 +129,8 @@ router.put('/:id', withAuth, (req, res) => {
   });
 });
 
+// DELETE a user route (/api/users/:id)
+// must pass authorization check
 router.delete('/:id', withAuth, (req, res) => {
   User.destroy({
     where: {
@@ -135,4 +150,5 @@ router.delete('/:id', withAuth, (req, res) => {
   });
 });
 
+// Export routes
 module.exports = router;

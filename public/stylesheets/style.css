@@ -5,10 +5,7 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: var(--color-2);
-}
-
+/* Root variable declarations */
 :root {
   --color-1: rgb(34,16,15); 
   --color-2: rgb(217,234,211);
@@ -18,6 +15,14 @@ body {
   --color-6: rgb(34,16,15,0.85);
   --color-7: rgb(34,16,15,0.65);
 }
+
+/* General element styles */
+
+body {
+  background-color: var(--color-2);
+}
+
+/* Header styles */ 
 
 #head {
   padding-top: 10px;
@@ -36,18 +41,20 @@ body {
 #title {
   justify-content: flex-start;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 5rem;
   color: var(--color-1);
   margin: 5px 10px;
 }
 
 #nav {
   margin: 10px 0px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .nav-link {
   color: var(--color-2);
-  font-size: 35px;
+  font-size: 2.5rem;
   padding: 20px 70px;
 }
 
@@ -63,6 +70,8 @@ body {
   color: var(--color-3);
 }
 
+/* Post styles */
+
 .post-list {
   padding: 20px 60px;
   margin-top: 30px;
@@ -72,6 +81,7 @@ body {
   border: 5px solid var(--color-1);
   border-top: none;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .post-head {
@@ -86,7 +96,7 @@ body {
   color: var(--color-3);
   font-weight: bold;
   text-decoration: none;
-  font-size: 50px;
+  font-size: 2.5rem;
 }
 
 .post-title:hover {
@@ -96,14 +106,16 @@ body {
 .post-info {
   margin: 10px 40px;
   color: var(--color-3);
-  font-size: 30px;
+  font-size: 1.5rem;
 }
 
 .post-text {
   margin: 10px 40px;
-  font-size: 35px;
+  font-size: 1.8rem;
   color: var(--color-1);
 }
+
+/* Comment styles */
 
 .comments {
   display: flex;
@@ -133,14 +145,16 @@ body {
   color: var(--color-3);
   font-weight: bold;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .comment-text {
   margin: 10px 40px;
-  font-size: 20px;
+  font-size: 1.30rem;
   color: var(--color-1);
 }
+
+/* Login & signup styles */
 
 .login-form {
   background-color: var(--color-2);
@@ -204,7 +218,7 @@ body {
 }
 
 .form-label-override {
-  font-size: 30px;
+  font-size: 2rem;
   color: var(--color-2);
 }
 
@@ -229,6 +243,8 @@ body {
   margin-bottom: 15px;
 }
 
+/* dashboard editing styles */
+
 .edit-title {
   width: 95%;
 }
@@ -238,11 +254,11 @@ body {
 }
 
 .delete-post-btn {
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 .save-post-btn {
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 hr {
@@ -264,6 +280,95 @@ hr {
 .edit-body {
   background-color: rgb(87, 66, 65);
 }
+
+/* Media queries */
+@media screen and (max-width: 1200px) {
+  #head{
+    padding-left: 0px;
+  }
+  #nav {
+    justify-content: center;
+  }
+  #page-title {
+    justify-content: center;
+  }
+  .post-title {
+    font-size: 1.5rem;
+  }
+  .post-info {
+    font-size: 1.5rem;
+  }
+  .post-text {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .nav-link {
+    padding: 20px 35px;
+  }
+  .post-head {
+    flex-direction: column;
+  }
+  .post-title {
+    font-size: 2rem;
+  }
+  .post-info {
+    font-size: 1.25rem;
+    margin-top: 0px;
+  }
+  .post-text {
+    font-size: 1.25rem;
+  }
+
+} 
+
+@media screen and (max-width:400px) {
+  .nav-link {
+    padding: 20px 10px;
+    font-size: 1.5rem;
+  }
+
+  #title {
+    font-size: 2rem;
+  }
+
+  .post-title {
+    text-align: center;
+    font-size: 1.75rem;
+  }
+  .post-info {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 0px;
+  }
+  .post-text {
+    text-align: center;
+    font-size: 1rem;
+  }
+  .dashboard{
+    font-size: 1rem;
+  }
+  .edit-post{
+    font-size: 1.5rem;
+  }
+  #post-title{
+    margin-bottom: 15px;
+  }
+  .save-post-btn{
+    font-size: 1.5rem;
+  }
+  .delete-post-btn{
+    font-size: 1.5rem;
+  }
+
+  .form-container {
+    padding: 50px 0px;
+    border-radius: 0px;
+  }
+}
+
+
 
 
 
