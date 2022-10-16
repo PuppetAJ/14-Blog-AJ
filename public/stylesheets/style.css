@@ -1,0 +1,61 @@
+/* Removes legacy styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-2);
+}
+
+:root {
+  --color-1: rgb(34,16,15); 
+  --color-2: rgb(217,234,211);
+  --color-3: rgb(217,234,211,0.75);
+}
+
+#head {
+  padding-top: 10px;
+  padding-left: 60px;
+  padding-bottom: 60px;
+  background-color: var(--color-1);
+}
+
+#title-bg {
+  padding: 10px;
+  background-color: var(--color-2);
+  border-radius: 15px;
+  box-shadow: 8px 8px 0px 0px var(--color-3);
+}
+
+#title {
+  justify-content: flex-start;
+  font-weight: bold;
+  font-size: 60px;
+  color: var(--color-1);
+  margin: 5px 10px;
+}
+
+#nav {
+  margin: 10px 0px;
+}
+
+.nav-link {
+  color: var(--color-2);
+  font-size: 35px;
+  padding: 20px 70px;
+}
+
+.nav-link:first-child {
+  padding-left: 0px;
+}
+
+.nav-link:last-child {
+  padding-right: 0px;
+}
+
+.nav-link:hover {
+  color: var(--color-3);
+}
+
